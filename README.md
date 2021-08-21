@@ -1,2 +1,2 @@
 # Rock-Paper-Scissors
-21/8/2021
+https://hobbyist101.github.io/Rock-Paper-Scissors/
