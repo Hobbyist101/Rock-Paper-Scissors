@@ -1,6 +1,8 @@
 const  game = ()=> {
     let pScore = 0;
     let cScore = 0;
+    let round = 1;
+    
 
     const playMatch = ()=> {
         const buttons = document.querySelectorAll(".button");
@@ -11,15 +13,17 @@ const  game = ()=> {
             //Computer Random
             const computerPlay= Math.floor(Math.random()*3);
             const computerSelection= computerOption[computerPlay];
-            console.log(this.textContent,computerSelection);
             //Start Compare Hand 
             playRound(this.textContent, computerSelection);
             //End Game
             if (pScore === 5 || cScore === 5 ){
                 declareWinner();
-                endgame();
+                pScore = 0;
+                cScore = 0;
             }
             declareWinner = () => {
+                
+                round = 1;
                 if (pScore > cScore){
                     winner.textContent = "You Win The Game!";
                     document.body.style.backgroundColor= "darkblue";
@@ -40,11 +44,15 @@ const  game = ()=> {
 
     //Update Intro
     const winner = document.querySelector(".winner");
+    const numberRound = document.querySelector('.round');
     const playRound = (playerSelection, computerSelection)=> { 
         playerSelection.toString();
         computerSelection.toString();
+        numberRound.textContent = 'Round ' + round;
+        round++;
         if (computerSelection == playerSelection){
-            winner.textContent = "It is a tie";
+            winner.textContent = "It is a tie"
+            updateScore();
             return;
         } 
         //Player Pick Rock
@@ -97,7 +105,7 @@ const  game = ()=> {
         const computerScore= document.querySelector(".computerScore")
         playerScore.textContent= pScore;
         computerScore.textContent= cScore;
-        }
+        };
     playMatch();
 };
 game();
