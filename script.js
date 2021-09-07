@@ -32,12 +32,6 @@ const  game = ()=> {
                     document.body.style.backgroundColor= "black";
                 };
             };
-            endgame = () => {
-                if (pScore > 4 || cScore > 4 ){
-                pScore = 0;
-                cScore = 0;
-                return;}
-            };
             })
         })
     };
