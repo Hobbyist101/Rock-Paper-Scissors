@@ -18,11 +18,11 @@ const  game = ()=> {
             //End Game
             if (pScore === 5 || cScore === 5 ){
                 declareWinner();
-                pScore = 0;
-                cScore = 0;
+            }
+            if (round === 2){
+                document.body.style.backgroundColor = "rgb(102, 133, 143)";
             }
             declareWinner = () => {
-                
                 round = 1;
                 if (pScore > cScore){
                     winner.textContent = "You Win The Game!";
@@ -31,6 +31,8 @@ const  game = ()=> {
                     winner.textContent = "You Lost...Try Again";
                     document.body.style.backgroundColor= "black";
                 };
+                pScore = 0;
+                cScore = 0;
             };
             })
         })
